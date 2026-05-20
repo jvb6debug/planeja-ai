@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Kanban</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/kanbanStyle.css">
+    </head>
+
+    <body>
+        <header>
+            <div>
+                <h1><span class="logo"></span>PlanejaAí</h1>
+            </div>
+
+            <nav>
+                <a href="Dashboard.html"><span class="dashboard-icon"></span>Dashboard</a>
+                <a href="#"><span class="kanban-icon"></span>Kanban</a>
+                <a href="Teams.html"><span class="team-icon"></span>Equipes</a>
+                
+            </nav>
+
+            <div>
+                <button class="btn login" id="login-btn">Entrar</button>
+                <button class="btn register" id="register-btn">Registrar-se</button>
+            </div>
+        </header>
+
+        <main>
+            <section>
+                <div class="page-title">
+                    <h1 class="page-title">KANBAN</h1>
+                </div>
+
+                <div class="filter-container">
+                    <div class="filter">
+                        <p>Filtro:</p>
+                        <span class="filter-icon"></span>
+                        <select id="filter-days" name="filter-day">
+                            <option value="30dias" selected>Ultimos 30 Dias</option>
+                            <option value="60dias">Ultimos 60 Dias</option>
+                            <option value="180dias">Ultimos 180 Dias</option>
+                        </select>
+                    </div>
+
+                    <div class="filter">
+                        <p>Categoria:</p>
+                        <span class="filter-icon"></span>
+                        <select id="filter-days" name="filter-day">
+                            <option value="" selected>Todas</option>
+                            <option value="">Metas</option>
+                            <option value="">Contratos</option>
+                            <option value="">Relatórios</option>
+                            <option value="">Website</option>
+                            <option value="">Treinamento</option>
+                            <option value="">Equipamento</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h2>Status tarefas</h2>
+
+                    <div class="legend">
+                        <p><span class="low"></span>Prioridade Baixa</p>
+                        <p><span class="med"></span>Prioridade Média</p>
+                        <p><span class="high"></span>Prioridade Alta</p>
+                    </div>
+
+                    <!-- Columns -->
+                    <div class="kanban-container">
+                        <div class="pending">
+                            <h3>Pendente</h3>
+
+                            <div class="task">
+                                <!-- Positioned absolute, right side -->
+                                <button class="options">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                        <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+                                    </svg>
+                                </button>
+
+                                <p class="task-title">Revisar Contrato #291</p>
+                                <p class="task-description">Verificar clausulas de pagamento e entrega</p>
+                                <div class="task-user-assigned">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+                                    </svg>
+                                    <p>Maria Santos</p>
+                                </div>
+
+                                <div class="bottom-container">
+                                    <p><span></span>Média</p>
+                                    <p>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-archive" viewBox="0 0 16 16">
+                                            <path d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5zm13-3H1v2h14zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
+                                        </svg>
+                                        Contratos
+                                    </p>
+                                    <p>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock-history" viewBox="0 0 16 16">
+                                            <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022zm2.004.45a7 7 0 0 0-.985-.299l.219-.976q.576.129 1.126.342zm1.37.71a7 7 0 0 0-.439-.27l.493-.87a8 8 0 0 1 .979.654l-.615.789a7 7 0 0 0-.418-.302zm1.834 1.79a7 7 0 0 0-.653-.796l.724-.69q.406.429.747.91zm.744 1.352a7 7 0 0 0-.214-.468l.893-.45a8 8 0 0 1 .45 1.088l-.95.313a7 7 0 0 0-.179-.483m.53 2.507a7 7 0 0 0-.1-1.025l.985-.17q.1.58.116 1.17zm-.131 1.538q.05-.254.081-.51l.993.123a8 8 0 0 1-.23 1.155l-.964-.267q.069-.247.12-.501m-.952 2.379q.276-.436.486-.908l.914.405q-.24.54-.555 1.038zm-.964 1.205q.183-.183.35-.378l.758.653a8 8 0 0 1-.401.432z"/>
+                                            <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0z"/>
+                                            <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5"/>
+                                        </svg>
+                                        28/10/2026
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="in-progress">
+                            <h3>Em Andamento</h3>
+
+                            <div class="task">
+                                <!-- Positioned absolute, right side -->
+                                <button class="options">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                        <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+                                    </svg>
+                                </button>
+
+                                <p class="task-title">Revisar Contrato #291</p>
+                                <p class="task-description">Verificar clausulas de pagamento e entrega</p>
+                                <div class="task-user-assigned">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+                                    </svg>
+                                    <p>Maria Santos</p>
+                                </div>
+
+                                <div class="bottom-container">
+                                    <p><span></span>Média</p>
+                                    <p>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-archive" viewBox="0 0 16 16">
+                                            <path d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5zm13-3H1v2h14zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
+                                        </svg>
+                                        Contratos
+                                    </p>
+                                    <p>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock-history" viewBox="0 0 16 16">
+                                            <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022zm2.004.45a7 7 0 0 0-.985-.299l.219-.976q.576.129 1.126.342zm1.37.71a7 7 0 0 0-.439-.27l.493-.87a8 8 0 0 1 .979.654l-.615.789a7 7 0 0 0-.418-.302zm1.834 1.79a7 7 0 0 0-.653-.796l.724-.69q.406.429.747.91zm.744 1.352a7 7 0 0 0-.214-.468l.893-.45a8 8 0 0 1 .45 1.088l-.95.313a7 7 0 0 0-.179-.483m.53 2.507a7 7 0 0 0-.1-1.025l.985-.17q.1.58.116 1.17zm-.131 1.538q.05-.254.081-.51l.993.123a8 8 0 0 1-.23 1.155l-.964-.267q.069-.247.12-.501m-.952 2.379q.276-.436.486-.908l.914.405q-.24.54-.555 1.038zm-.964 1.205q.183-.183.35-.378l.758.653a8 8 0 0 1-.401.432z"/>
+                                            <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0z"/>
+                                            <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5"/>
+                                        </svg>
+                                        28/10/2026
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="completed">
+                            <h3>Concluido</h3>
+                            
+                            <div class="task">
+                                <!-- Positioned absolute, right side -->
+                                <button class="options">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                        <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+                                    </svg>
+                                </button>
+
+                                <p class="task-title">Revisar Contrato #291</p>
+                                <p class="task-description">Verificar clausulas de pagamento e entrega</p>
+                                <div class="task-user-assigned">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+                                    </svg>
+                                    <p>Maria Santos</p>
+                                </div>
+
+                                <div class="bottom-container">
+                                    <p><span></span>Média</p>
+                                    <p>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-archive" viewBox="0 0 16 16">
+                                            <path d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5zm13-3H1v2h14zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
+                                        </svg>
+                                        Contratos
+                                    </p>
+                                    <p>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock-history" viewBox="0 0 16 16">
+                                            <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022zm2.004.45a7 7 0 0 0-.985-.299l.219-.976q.576.129 1.126.342zm1.37.71a7 7 0 0 0-.439-.27l.493-.87a8 8 0 0 1 .979.654l-.615.789a7 7 0 0 0-.418-.302zm1.834 1.79a7 7 0 0 0-.653-.796l.724-.69q.406.429.747.91zm.744 1.352a7 7 0 0 0-.214-.468l.893-.45a8 8 0 0 1 .45 1.088l-.95.313a7 7 0 0 0-.179-.483m.53 2.507a7 7 0 0 0-.1-1.025l.985-.17q.1.58.116 1.17zm-.131 1.538q.05-.254.081-.51l.993.123a8 8 0 0 1-.23 1.155l-.964-.267q.069-.247.12-.501m-.952 2.379q.276-.436.486-.908l.914.405q-.24.54-.555 1.038zm-.964 1.205q.183-.183.35-.378l.758.653a8 8 0 0 1-.401.432z"/>
+                                            <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0z"/>
+                                            <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5"/>
+                                        </svg>
+                                        28/10/2026
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="create-task">
+                    <h2>Criar Tarefa</h2>
+
+                    <form>
+                        <div class="left-side">
+                            <label for="task-title">Título da Tarefa:</label>
+                            <input type="text" id="task-title" placeholder="Ex. Revisar Contrato com cliente XYZ">
+                            <label for="task-description">Descrição da Tarefa:</label>
+                            <input type="text" id="task-description" placeholder="Descreva os detalhes da tarefa">
+                            <label for="task-assign-user">Responsável:</label>
+                            <select id="task-assign-user">
+                                <option value="" selected>Selecione um usuário</option>
+                            </select>
+                            <input type="submit" value="Criar tarefa">
+                        </div>
+                        <div class="right-side">
+                            <label for="task-due-date">Prazo:</label>
+                            <input type="date" id="task-due-date">
+                            
+                            <label for="task-priority">Prioridade:</label>
+                            <select id="task-priority">
+                                <option value="" selected>Prioridade</option>
+                                <option value="low">Baixa</option>
+                                <option value="medium">Média</option>
+                                <option value="high">Alta</option>
+                            </select>
+
+                            <label for="task-category">Categorias:</label>
+                            <select id="task-category">
+                                <option value="" selected>Categoria</option>
+                                <option value="">Metas</option>
+                                <option value="">Contratos</option>
+                                <option value="">Relatórios</option>
+                                <option value="">Website</option>
+                                <option value="">Treinamento</option>
+                                <option value="">Equipamento</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="logo">
+                <span></span>
+                <p>PlanejaAí</p>
+            </div>
+          
+            <nav>
+              <span class="facebook"></span>
+              <span class="linkedin"></span>
+              <span class="youtube"></span>
+              <span class="instagram"></span>
+            </nav>
+        </footer>
+    </body>
+
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>PlanejaAí</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body>
+        <header>
+            <div>
+              <h1><span class="logo"></span>PlanejaAí</h1>
+            </div>
+            
+            <nav>
+              <a href="#"><span class="dashboard-icon"></span>Dashboard</a>
+                <a href="Kanban.html"><span class="kanban-icon"></span>Kanban</a>
+                <a href="Teams.html"><span class="team-icon"></span>Equipes</a>
+                <!-- <a href="#"><span class="archives-icon"></span>Arquivos</a> -->
+            </nav>
+            
+            <div>
+                <button class="btn login" id="login-btn">Entrar</button>
+                <button class="btn register" id="register-btn">Registrar-se</button>
+                <p class="hidden btn" id="ProfileName">Test</p>
+                <button class="hidden btn log-out" id="LogOutButton">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
+                    <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+                  </svg>
+                  Sair
+                </button>
+            </div>
+        </header>
+        
+        <main>
+          <div class="page-title">
+            <h1 class="page-title">DASHBOARD</h1>
+          </div>
+          
+          <div class="tasks-cards">
+            <div class="card">
+              <div class="card-color"></div>
+              <div class="card-task">
+                <p class="card-title">Tarefas Totais</p>
+                <h2 class="card-task-count" id="total-tasks">10</h2>
+              </div>
+            </div>
+            
+            <div class="card">
+              <div class="card-color"></div>
+              <div class="card-task">
+                <p class="card-title">Concluídas</p>
+                <h2 class="card-task-count" id="tasks-done">5</h2>
+              </div>
+            </div>
+            
+            <div class="card">
+              <div class="card-color"></div>
+              <div class="card-task">
+                <p class="card-title">Em andamento</p>
+                <h2 class="card-task-count" id="tasks-in-progress">2</h2>
+              </div>
+            </div>
+            
+            <!-- Task Counters-->
+            <div class="card">
+              <div class="card-color"></div>
+              <div class="card-task">
+                 <p class="card-title">Atrasadas</p>
+                 <h2 class="card-task-count" id="tasks-late">0</h>
+              </div>
+            </div>
+          </div>
+          
+          <div class="filter">
+            <p>Filtro:</p>
+            <span class="filter-icon"></span>
+            <select id="filter-days" name="filter-day">
+              <option value="30dias" selected>Ultimos 30 Dias</option>
+              <option value="60dias">Ultimos 60 Dias</option>
+              <option value="180dias">Ultimos 180 Dias</option>
+            </select>
+          </div>
+          
+          <!-- Grids -->
+          <div class="activities">
+            <div class="card">
+              <header>
+                <h1>Status das Tarefas</h1>
+              </header>
+
+              <section style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <canvas id="tasksChart" style="max-width: 35dvw; max-height: 50dvh; min-width: fit-content; min-height: fit-content;"></canvas>
+              </section>
+            </div>
+            
+            <div class="card">
+              <header>
+                <h1>Produtividade Semanal</h1>
+              </header>
+
+              <section style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <canvas id="productivityChart" style="max-width: 40dvw; max-height: 50dvh; min-width: fit-content; min-height: fit-content;"></canvas>
+              </section>
+            </div>
+
+            <div class="card">
+              <header>
+                <h1>Tarefas Recentes</h1>      
+              </header>
+
+              <section>
+                <div class="labels">
+                  <div class="label low"></div>
+                  <p>Prioridade Baixo</p>
+                  <div class="label med"></div>
+                  <p>Prioridade Média</p>
+                  <div class="label high"></div>
+                  <p>Prioridade Alta</p>
+                </div>
+
+                <div class="open-tasks-cards">
+                  <article class="card">
+                    <div class="card-body">
+                      <div class="task-info">
+                        <h2 style="color: var(--primary-color);">Revisar Contrato #291</h2>
+                        <p style="opacity: 0.75;">Verificar cláusulas de pagamento e entrega</p>
+                        <div style="display: flex; gap: 5px;">
+                          <span style="background-color: #FFB703; width: 15px; height: 15px; border-radius: 50%; display: block;"></span>
+                          <p>Média</p>
+                        </div>
+                      </div>
+                      <div style="flex: 1; display: flex; flex-direction: column; gap: 5px; align-items: end; justify-content: flex-end;">
+                        <div style="display: flex; gap: 5px;">
+                          <span class="task-author-icon"></span>
+                          <p style="color: var(--primary-color);">Maria Santos</p>
+                        </div>
+                        <div style="display: flex; gap: 5px;">
+                          <span class="task-timestamp-icon"></span>
+                          <p style="color: var(--primary-color);">15/08/2026</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-accent"></div>
+                  </article>
+
+                  <article class="card">
+                    <div class="card-body">
+                      <div class="task-info">
+                        <h2 style="color: var(--primary-color);">Preparar Relatório mensal</h2>
+                        <p style="opacity: 0.75;">Consolidar dados de vendas e operações</p>
+                        <div style="display: flex; gap: 5px;">
+                          <span style="background-color: #FF0000; width: 15px; height: 15px; border-radius: 50%; display: block;"></span>
+                          <p>Alta</p>
+                        </div>
+                      </div>
+                      <div style="flex: 1; display: flex; flex-direction: column; gap: 5px; align-items: end; justify-content: flex-end;">
+                        <div style="display: flex; gap: 5px;">
+                          <span class="task-author-icon"></span>
+                          <p style="color: var(--primary-color);">Pedro Oliveira</p>
+                        </div>
+                        <div style="display: flex; gap: 5px;">
+                          <span class="task-timestamp-icon"></span>
+                          <p style="color: var(--primary-color);">20/06/2026</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-accent"></div>
+                  </article>
+
+                  <article class="card">
+                    <div class="card-body">
+                      <div class="task-info">
+                        <h2 style="color: var(--primary-color);">Atualizar site</h2>
+                        <p style="opacity: 0.75;">incluir serviços e portólio</p>
+                        <div style="display: flex; gap: 5px;">
+                          <span style="background-color: #FF0000; width: 15px; height: 15px; border-radius: 50%; display: block;"></span>
+                          <p>Alta</p>
+                        </div>
+                      </div>
+                      <div style="flex: 1; display: flex; flex-direction: column; gap: 5px; align-items: end; justify-content: flex-end;">
+                        <div style="display: flex; gap: 5px;">
+                          <span class="task-author-icon"></span>
+                          <p style="color: var(--primary-color);">Ana Costa</p>
+                        </div>
+                        <div style="display: flex; gap: 5px;">
+                          <span class="task-timestamp-icon"></span>
+                          <p style="color: var(--primary-color);">18/11/2025</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-accent"></div>
+                  </article>
+                </div>
+              </section>
+            </div>
+
+            <div class="card">
+              <header>
+                <h1>Melhores desempenhos</h1>
+              </header>
+
+              <section>
+                <div class="profiles">
+                  <article class="card">
+                    <div class="card-body">
+                      <div class="avatar"></div>
+                      <div class="info">
+                        <h3>João Silva</h3>
+                        <div class="tasks">
+                          <div class="role">
+                            <span class="role-icon"></span>
+                            <p>Engenheiro de software</p>
+                          </div>
+                          <div class="task">
+                            <span class="task-complete-icon"></span>
+                            <p>Tarefas Concluídas: 9</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card-accent"></div>
+                  </article>
+
+                  <article class="card">
+                    <div class="card-body">
+                      <div class="avatar"></div>
+                      <div class="info">
+                        <h3>Maria Santos</h3>
+                        <div class="tasks">
+                          <div class="role">
+                            <span class="role-icon"></span>
+                            <p>Analista de Marketing</p>
+                          </div>
+                          <div class="task">
+                            <span class="task-complete-icon"></span>
+                            <p>Tarefas Concluídas: 6</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card-accent"></div>
+                  </article>
+
+                  <article class="card">
+                    <div class="card-body">
+                      <div class="avatar"></div>
+                      <div class="info">
+                        <h3>Pedro Oliveira</h3>
+                        <div class="tasks">
+                          <div class="role">
+                            <span class="role-icon"></span>
+                            <p>Desenvolvedor Full-stack</p>
+                          </div>
+                          <div class="task">
+                            <span class="task-complete-icon"></span>
+                            <p>Tarefas Concluídas: 7</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card-accent"></div>
+                  </article>
+                </div>
+              </section>
+            </div>
+          </div>
+        </main>
+        
+        <footer>
+            <div class="logo">
+                <span></span>
+                <p>PlanejaAí</p>
+            </div>
+          
+            <nav>
+              <span class="facebook"></span>
+              <span class="linkedin"></span>
+              <span class="youtube"></span>
+              <span class="instagram"></span>
+            </nav>
+        </footer>
+
+        <script src="js/main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,562 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica;
+}
+
+:root {
+  --primary-color: #3F37C9;
+  --secondary-color: #F8F9FA;
+  --text-primary-color: #FFFFFF;
+  --text-secondary-color: #6C757D;
+  --text-tertiary-color: #000000;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* HEADER */
+.btn {
+  padding: 12px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: var(--text-primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.login {
+  background: none;
+  border: 1px solid white;
+}
+
+.login:hover {
+  background: white;
+  color: grey;
+}
+
+.register {
+  background: #007BFF;
+}
+
+.register:hover {
+  background: white;
+  color: grey;
+}
+
+.log-out {
+  background: #007BFF;
+}
+
+.log-out:hover {
+  background: white;
+  color: grey;
+}
+
+.hidden {
+  display: none;
+}
+
+header {
+  background: var(--primary-color);
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header > * {
+  flex: 1;
+}
+
+header > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+header > nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: calc(25px + 10px);
+}
+
+header nav a {
+  position: relative;
+  color: var(--text-primary-color);
+}
+
+header div h1 {
+  color: var(--text-primary-color);
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+header div h1 .logo {
+  position: absolute;
+  transform: translateX(calc(-58px + -5px)) translateY(-10px);
+  background: url(https://img.icons8.com/?size=58&id=bckA7lrhX78O&format=png&color=FFFFFF);
+  background-repeat: no-repeat;
+  height: 58px;
+  width: 58px;
+}
+
+.dashboard-icon {
+  position: absolute;
+  transform: translateX(calc(-18px + -5px));
+  width: 18px;
+  height: 18px;
+  background: url("https://img.icons8.com/?size=100&id=aVHe2jHuORcA&format=png&color=FFFFFF");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.kanban-icon {
+  position: absolute;
+  transform: translateX(calc(-18px + -5px));
+  width: 18px;
+  height: 18px;
+  background: url("https://img.icons8.com/?size=100&id=fbyWnEcsCVhd&format=png&color=FFFFFF");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.team-icon {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  transform: translateX(calc(-18px + -5px));
+  background: url("https://img.icons8.com/?size=100&id=82751&format=png&color=FFFFFF");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.archives-icon {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  transform: translateX(calc(-18px + -5px));
+  background: url("https://img.icons8.com/?size=100&id=85927&format=png&color=FFFFFF");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* PAGE */
+.page-title {
+  color: var(--primary-color);
+  margin-top: 35px;
+  margin-left: 50px;
+  height: 75px;
+}
+
+.tasks-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 125px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.tasks-cards > .card {
+  flex: 1;
+  border-radius: 15px;
+  height: 110px;
+  max-width: 300px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+  
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+}
+
+.tasks-cards > .card > .card-color {
+  background: var(--primary-color);
+  width: 20px;
+  margin-right: 10px;
+  border-radius: 15px 0px 0px 15px;
+}
+
+.tasks-cards > .card > .card-task {
+  display: flex;
+  flex-direction: column;
+}
+
+.tasks-cards > .card > .card-task > .card-title {
+  font-size: 16px;
+  color: var(--text-secondary-color);
+  margin-top: 10px;
+  flex: 1;
+}
+
+.tasks-cards > .card > .card-task > .card-task-count {
+  color: var(--primary-color);
+  flex: 1;
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+main > .filter {
+  margin-left: 50px;
+}
+
+main > .filter > p {
+  color: var(--text-secondary-color);
+}
+
+#filter-days {
+  position: relative;
+  background: var(--secondary-color);
+  color: var(--text-tertiary-color);
+  padding: 5px;
+  padding-right: 50px;
+  padding-left: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+#filter-days > option {
+  color: #000;
+  border: none;
+}
+
+.filter-icon {
+  position: absolute;
+  transform: translateX(5px) translateY(5px);
+  width: 20px;
+  height: 20px;
+  background: url("https://img.icons8.com/?size=24&id=59785&format=png&color=6C757D");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  z-index: 1;
+}
+
+.activities {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 640px;
+  gap: 10px;
+  margin: 25px 50px 0 50px;
+}
+
+.activities .card {
+  display: flex;
+  flex-direction: column;
+  background: var(--secondary-color);
+  border-radius: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.activities .card header {
+  background: none;
+}
+
+.activities .card header h1 {
+  color: var(--primary-color);
+  margin-left: 25px;
+}
+
+.activities section header {
+  display: flex;
+  gap: 10px;
+  margin: 0px 10px 0 10px;
+}
+
+/* RECENT TASKS */
+.activities .card section .labels {
+  display: flex;
+  gap: 10px;
+  margin-left: 15px;
+  /* justify-content: center; */
+}
+
+.activities .card section .labels .label {
+  border-radius: 3em;
+  padding: 5px 15px;
+  min-width: 50px;
+}
+
+.card section .labels .low {
+  background-color: #4DC6FF;
+}
+
+.card section .labels .med {
+  background-color: #FFB703;
+}
+
+.card section .labels .high {
+  background-color: #FF0000;
+}
+
+/* RECENT TASKS CARD */
+.activities .open-tasks-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 15px;
+}
+
+.open-tasks-cards .card {
+  overflow: hidden;
+}
+
+.open-tasks-cards .card-accent {
+  height: 8px;
+  width: 100%;
+  background-color: #3F37C9;
+}
+
+.open-tasks-cards .card-body {
+  display: flex;
+  padding: 10px;
+}
+
+.open-tasks-cards .card-body .task-info {
+  flex: 1;
+}
+
+.open-tasks-cards .task-author-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  background: url("https://img.icons8.com/?size=100&id=107049&format=png&color=3F37C9");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.open-tasks-cards .task-timestamp-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  background: url("https://img.icons8.com/?size=100&id=Uv5jYjUmFUTy&format=png&color=3F37C9 ");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* BEST PERFOMANCE */
+.profiles {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.profiles .card {
+  display: flex;
+  flex-direction: column;
+
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  overflow: hidden;
+}
+
+/* Main padded content area */
+.profiles .card-body {
+  display: flex;
+  padding: 16px;
+}
+
+/* Avatar */
+.profiles .avatar {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+
+  background: url("https://img.icons8.com/?size=100&id=z-JBA_KtSkxG&format=png&color=000000");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Right-side content */
+.profiles .info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-left: 10px;
+}
+
+/* Username */
+.profiles .info h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+  color: black;
+}
+
+/* Tasks row */
+.profiles .tasks {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: auto;
+}
+
+/* Role row */
+.profiles .role {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.profiles .role p {
+  color: rgba(0,0,0,0.6);
+}
+
+/* Task complete aligned right */
+.profiles .task {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  margin-left: auto;
+}
+
+.profiles .task p {
+  color: var(--primary-color);
+}
+
+/* Role icon */
+.profiles .role-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+
+  background: url("https://img.icons8.com/?size=100&id=107049&format=png&color=000000");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Task complete icon */
+.profiles .task-complete-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+
+  background: url("https://img.icons8.com/?size=100&id=59733&format=png&color=3F37C9");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Full-width bottom color bar */
+.profiles .card-accent {
+  height: 8px;
+  width: 100%;
+  background: var(--primary-color);
+}
+
+/* FOOTER */
+footer {
+  border-top: 2px dashed rgba(0, 0, 0, 0.1);
+  min-height: 50px;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+footer > .logo {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+}
+
+footer > .logo > span {
+  background: url(https://img.icons8.com/?size=58&id=bckA7lrhX78O&format=png&color=6C757D);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.65;
+  height: 48px;
+  width: 48px;
+}
+
+footer > .logo > p {
+  color: var(--text-secondary-color);
+  font-size: 18px;
+}
+
+footer > nav {
+  display: flex;
+  gap: 10px;
+}
+
+footer > nav * {
+  flex: 1;
+  cursor: pointer;
+}
+
+footer > nav > .facebook {
+  width: 25px;
+  height: 25px;
+
+  background-image: url("https://img.icons8.com/?size=25&id=118466&format=png&color=6C757D");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  opacity: 0.65;
+}
+
+footer > nav > .linkedin {
+  width: 25px;
+  height: 25px;
+  
+  background: url("https://img.icons8.com/?size=25&id=98960&format=png&color=6C757D");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  opacity: 0.65;
+}
+
+footer > nav > .youtube {
+  width: 25px;
+  height: 25px;
+  
+  background: url("https://img.icons8.com/?size=26&id=62852&format=png&color=6C757D");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  opacity: 0.65;
+}
+
+footer > nav > .instagram {
+  width: 25px;
+  height: 25px;
+  
+  background: url("https://img.icons8.com/?size=25&id=59813&format=png&color=6C757D");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  opacity: 0.65;
+}
