@@ -32,12 +32,16 @@ CREATE TABLE IF NOT EXISTS tasks (
 db.exec(`
 CREATE TABLE IF NOT EXISTS user_tasks (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  user_id INTEGER,
-  task_id INTEGER,
-  role TEXT,
+  user_id INTEGER NOT NULL,
+  task_id INTEGER NOT NULL,
+  role TEXT NOT NULL DEFAULT 'assigned',
   done_at DATE,
-  FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE,
-  FOREIGN KEY(task_id) REFERENCES tasks(id) ON DELETE CASCADE
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+  FOREIGN KEY (task_id) REFERENCES tasks(id) ON DELETE CASCADE,
+
+  UNIQUE(user_id, task_id, role)
 );
 `);
 

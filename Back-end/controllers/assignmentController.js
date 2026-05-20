@@ -12,6 +12,10 @@ exports.unassignTask = (req, res) => {
   res.json({ removed: true });
 };
 
+exports.getTotalTasks = (req, res) => {
+  res.json(Assignment.getTotalTasks());
+}
+
 exports.getUserTasks = (req, res) => {
   res.json(Assignment.getUserTasks(req.params.user_id));
 };

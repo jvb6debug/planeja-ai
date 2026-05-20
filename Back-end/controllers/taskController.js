@@ -9,6 +9,10 @@ exports.getTasks = (req, res) => {
   res.json(Task.getAll());
 };
 
+exports.getRecent = (req, res) => {
+  res.json(Task.getByTimeFrame());
+};
+
 exports.getTask = (req, res) => {
   res.json(Task.getById(req.params.id));
 };

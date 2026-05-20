@@ -16,6 +16,8 @@ module.exports = {
 
   getAll: () => db.prepare(`SELECT * FROM tasks`).all(),
 
+  getByTimeFrame: () => db.prepare(`SELECT * FROM tasks ORDER BY time_frame DESC LIMIT 3`).all(),
+
   getById: (id) =>
     db.prepare(`SELECT * FROM tasks WHERE id = ?`).get(id),
 

@@ -1,5 +1,6 @@
 const express = require("express");
 const dotenv = require('dotenv');
+const cors = require('cors');
 
 dotenv.config({ path: './dotenv.env' });
 
@@ -15,6 +16,12 @@ const dashboardRoutes = require("./routes/dashboardRoutes");
 
 
 const app = express();
+
+// allow your frontend origin
+app.use(cors({
+    origin: 'http://127.0.0.1:5500'
+}));
+
 app.use(express.json());
 
 app.use("/users", userRoutes);
@@ -26,6 +33,8 @@ app.use("/register", registerRoutes);
 app.use("/team-members", teamMemberRoutes);
 app.use("/assignments", assignmentRoutes);
 app.use("/dashboard", dashboardRoutes);
+
+
 
 app.listen(process.env.PORT, () => {
   console.log("Server running 🚀");

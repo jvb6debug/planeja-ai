@@ -7,6 +7,40 @@ module.exports = {
       VALUES (?, ?, ?)
     `).run(user_id, task_id, role),
 
+  getTotalTasks: () =>
+    db.prepare(`
+      SELECT COUNT(*) AS total
+      FROM user_tasks
+    `).get(),
+
+  getTasksDone: (user_id) =>
+    db.prepare(`
+      SELECT ut.*
+      FROM user_tasks ut
+      JOIN tasks t ON t.id = ut.task_id
+      WHERE t.status = 'Done'
+        AND ut.user_id = ?
+    `).all(user_id),
+
+  getTasksPending: (user_id) =>
+    db.prepare(`
+      SELECT ut.*
+      FROM user_tasks ut
+      JOIN tasks t ON t.id = ut.task_id
+      WHERE t.status = 'Pending'
+        AND ut.user_id = ?
+    `).all(user_id),
+
+  getTasksDue: (user_id) =>
+    db.prepare(`
+      SELECT ut.*
+      FROM user_tasks ut
+      JOIN tasks t ON t.id = ut.task_id
+      WHERE t.status != 'Done'
+        AND date(t.time_frame) <= date('now')
+        AND ut.user_id = ?
+    `).all(user_id),
+
   unassignTask: (user_id, task_id) =>
     db.prepare(`
       DELETE FROM user_tasks
