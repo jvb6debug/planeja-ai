@@ -1,0 +1,23 @@
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+  "name": "test-123",
+  "email": "test@gmail.com",
+  "password": "HelloWorld"
+}
+
+###
+
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "name": "test-123",
+  "password": "HelloWorld",
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6InRlc3QtMTIzIiwiaWF0IjoxNzc5MjE0MTU2LCJleHAiOjE3NzkyMTc3NTZ9.FVKJEdMrnAj47xQc7olrXXPZAvwTKi75OIGZkwVEtm0"
+}
+
+###
+
+GET http://localhost:3000/users/1
