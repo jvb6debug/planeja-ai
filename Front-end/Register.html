@@ -27,18 +27,23 @@
         </header>
 
         <main>
+            
+            <div class="dialog hidden" id="Dialog">
+                <h2>User Created Sucessfully.</h2>
+            </div>
+
             <section>
                 <div class="login-card">
                     <h1>Bem-vindo!</h1>
-                    <form method="POST" action="">
+                    <form id="RegisterForm">
                         <label for="Name">Nome: </label>
                         <input type="text" id="Name" placeholder="Nome" required>
                         <label for="email">Email: </label>
                         <input type="email" placeholder="Email" id="Email" required>
                         <label for="Password">Senha: </label>
                         <input type="password" placeholder="Senha" id="Password" required>
-                        <button class="sign-in">Entrar</button>
                     </form>
+                    <button class="sign-in" id="SignIn" type="button">Registrar-se</button>
                 </div>
             </section>
         </main>

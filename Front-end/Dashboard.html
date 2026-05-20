@@ -121,81 +121,62 @@
                   <p>Prioridade Alta</p>
                 </div>
 
+                <template id="RecentTaskCard">
+                  <article class="card task-card">
+                    <div class="card-body">
+
+                      <div class="task-info">
+                        <h2 class="task-title" style="color: var(--primary-color);"></h2>
+
+                        <p class="task-description" style="opacity: 0.75;"></p>
+
+                        <div class="task-priority">
+                          <span class="priority-dot"></span>
+                          <p class="task-priority-text"></p>
+                        </div>
+                      </div>
+
+                      <div class="task-meta">
+                        <div class="task-date">
+                          <span class="task-timestamp-icon"></span>
+                          <p class="task-date-text" style="color: var(--primary-color);"></p>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div class="card-accent"></div>
+                  </article>
+                </template>
+
                 <div class="open-tasks-cards">
-                  <article class="card">
-                    <div class="card-body">
-                      <div class="task-info">
-                        <h2 style="color: var(--primary-color);">Revisar Contrato #291</h2>
-                        <p style="opacity: 0.75;">Verificar cláusulas de pagamento e entrega</p>
-                        <div style="display: flex; gap: 5px;">
-                          <span style="background-color: #FFB703; width: 15px; height: 15px; border-radius: 50%; display: block;"></span>
-                          <p>Média</p>
-                        </div>
-                      </div>
-                      <div style="flex: 1; display: flex; flex-direction: column; gap: 5px; align-items: end; justify-content: flex-end;">
-                        <div style="display: flex; gap: 5px;">
-                          <span class="task-author-icon"></span>
-                          <p style="color: var(--primary-color);">Maria Santos</p>
-                        </div>
-                        <div style="display: flex; gap: 5px;">
-                          <span class="task-timestamp-icon"></span>
-                          <p style="color: var(--primary-color);">15/08/2026</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="card-accent"></div>
-                  </article>
-
-                  <article class="card">
-                    <div class="card-body">
-                      <div class="task-info">
-                        <h2 style="color: var(--primary-color);">Preparar Relatório mensal</h2>
-                        <p style="opacity: 0.75;">Consolidar dados de vendas e operações</p>
-                        <div style="display: flex; gap: 5px;">
-                          <span style="background-color: #FF0000; width: 15px; height: 15px; border-radius: 50%; display: block;"></span>
-                          <p>Alta</p>
-                        </div>
-                      </div>
-                      <div style="flex: 1; display: flex; flex-direction: column; gap: 5px; align-items: end; justify-content: flex-end;">
-                        <div style="display: flex; gap: 5px;">
-                          <span class="task-author-icon"></span>
-                          <p style="color: var(--primary-color);">Pedro Oliveira</p>
-                        </div>
-                        <div style="display: flex; gap: 5px;">
-                          <span class="task-timestamp-icon"></span>
-                          <p style="color: var(--primary-color);">20/06/2026</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="card-accent"></div>
-                  </article>
-
-                  <article class="card">
-                    <div class="card-body">
-                      <div class="task-info">
-                        <h2 style="color: var(--primary-color);">Atualizar site</h2>
-                        <p style="opacity: 0.75;">incluir serviços e portólio</p>
-                        <div style="display: flex; gap: 5px;">
-                          <span style="background-color: #FF0000; width: 15px; height: 15px; border-radius: 50%; display: block;"></span>
-                          <p>Alta</p>
-                        </div>
-                      </div>
-                      <div style="flex: 1; display: flex; flex-direction: column; gap: 5px; align-items: end; justify-content: flex-end;">
-                        <div style="display: flex; gap: 5px;">
-                          <span class="task-author-icon"></span>
-                          <p style="color: var(--primary-color);">Ana Costa</p>
-                        </div>
-                        <div style="display: flex; gap: 5px;">
-                          <span class="task-timestamp-icon"></span>
-                          <p style="color: var(--primary-color);">18/11/2025</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="card-accent"></div>
-                  </article>
+                  
                 </div>
               </section>
             </div>
+
+            <template id="BestPerformerCard">
+              <article class="card">
+                <div class="card-body">
+                  <div class="avatar"></div>
+                    <div class="info">
+                      <h3>João Silva</h3>
+                      <div class="tasks">
+                        <div class="role">
+                          <span class="role-icon"></span>
+                          <p>Engenheiro de software</p>
+                        </div>
+                        <div class="task">
+                          <span class="task-complete-icon"></span>
+                          <p>Tarefas Concluídas: 9</p>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="card-accent"></div>
+              </article>
+            </template>
 
             <div class="card">
               <header>
@@ -204,68 +185,7 @@
 
               <section>
                 <div class="profiles">
-                  <article class="card">
-                    <div class="card-body">
-                      <div class="avatar"></div>
-                      <div class="info">
-                        <h3>João Silva</h3>
-                        <div class="tasks">
-                          <div class="role">
-                            <span class="role-icon"></span>
-                            <p>Engenheiro de software</p>
-                          </div>
-                          <div class="task">
-                            <span class="task-complete-icon"></span>
-                            <p>Tarefas Concluídas: 9</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="card-accent"></div>
-                  </article>
-
-                  <article class="card">
-                    <div class="card-body">
-                      <div class="avatar"></div>
-                      <div class="info">
-                        <h3>Maria Santos</h3>
-                        <div class="tasks">
-                          <div class="role">
-                            <span class="role-icon"></span>
-                            <p>Analista de Marketing</p>
-                          </div>
-                          <div class="task">
-                            <span class="task-complete-icon"></span>
-                            <p>Tarefas Concluídas: 6</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="card-accent"></div>
-                  </article>
-
-                  <article class="card">
-                    <div class="card-body">
-                      <div class="avatar"></div>
-                      <div class="info">
-                        <h3>Pedro Oliveira</h3>
-                        <div class="tasks">
-                          <div class="role">
-                            <span class="role-icon"></span>
-                            <p>Desenvolvedor Full-stack</p>
-                          </div>
-                          <div class="task">
-                            <span class="task-complete-icon"></span>
-                            <p>Tarefas Concluídas: 7</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="card-accent"></div>
-                  </article>
+                  
                 </div>
               </section>
             </div>

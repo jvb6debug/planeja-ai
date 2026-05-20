@@ -1,4 +1,14 @@
 main {
+
+    .dialog {
+        margin: 20px;
+        color: white;
+        background-color: hsla(120, 100%, 45%, 0.5);
+        padding: 20px;
+        border-radius: 12px;
+        text-align: center;
+    }
+
     section {
         display: flex;
         justify-content: center;
@@ -33,16 +43,19 @@ main {
                     width: 350px;
                 }
 
-                .sign-in {
-                    background-color: #007BFF;
-                    color: white;
-                    padding: 10px;
-                    border: none;
-                    cursor: pointer;
-                    margin-bottom: 10px;
-                    &:hover {
-                        background-color: hsl(211, 100%, 40%);
-                    }
+                
+            }
+
+            .sign-in {
+                background-color: #007BFF;
+                color: white;
+                padding: 10px;
+                border: none;
+                cursor: pointer;
+                margin-top: 10px;
+                width: 350px;
+                &:hover {
+                    background-color: hsl(211, 100%, 40%);
                 }
             }
         }
